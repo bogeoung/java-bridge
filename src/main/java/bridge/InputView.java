@@ -3,13 +3,30 @@ package bridge;
 /**
  * 사용자로부터 입력을 받는 역할을 한다.
  */
+import camp.nextstep.edu.missionutils.Console;
+
 public class InputView {
+    OutputView outputView;
+
+    public InputView() {
+        this.outputView = new OutputView();
+    }
 
     /**
      * 다리의 길이를 입력받는다.
      */
     public int readBridgeSize() {
-        return 0;
+        System.out.printf(Message.GAME_START.getContent(), System.lineSeparator(), System.lineSeparator());
+        String bridgeSize;
+        while(true) {
+            System.out.println(Message.GET_BRIDGE_LENGTH.getContent());
+            bridgeSize = readline();
+            if(!InputValidator.validBridgeSizeInput(bridgeSize)){
+                outputView.invalidBridgeSize();
+                continue;
+            }
+            return Integer.parseInt(bridgeSize);
+        }
     }
 
     /**
@@ -24,5 +41,9 @@ public class InputView {
      */
     public String readGameCommand() {
         return null;
+    }
+
+    private String readline(){
+        return Console.readLine();
     }
 }
