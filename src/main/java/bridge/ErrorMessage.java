@@ -2,7 +2,8 @@ package bridge;
 
 public enum ErrorMessage {
     INVALID_BRIDGE_LENGTH("다리 길이는 3부터 20 사이의 숫자여야 합니다."),
-    INVALID_MOVE_REQUEST("이동에는 위: U, 아래: D 만 입력가능합니다.");
+    INVALID_MOVE_REQUEST("이동에는 위: U, 아래: D 만 입력가능합니다."),
+    INVALID_RETRY_REQUEST("재시도 : R, 종료 : Q만 입력가능합니다.");
 
     public static final String ERROR_MESSAGE_PREFIX = "[ERROR] ";
     private final String content;
